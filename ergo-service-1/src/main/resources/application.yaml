@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ergo-service-1
+server:
+  port: 9001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true

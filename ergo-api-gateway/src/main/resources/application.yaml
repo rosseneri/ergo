@@ -1,0 +1,26 @@
+server:
+  port: 8672
+spring:
+  application:
+    name: ergo-api-gateway
+#服务注册
+eureka:
+  instance:
+    hostname: ergo-api-gateway
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+# 路由配置方式一
+#zuul:
+#  routes:
+#所有请求management-equip的请求，都会被拦截，并且转发到equip上
+#    management-equip: /equip/** 
+
+# 路由配置方式二
+#zuul:
+#  routes:
+#    # 其中equip是路由名称，可以随便定义，但是path和service-id需要一一对应
+#    equip: 
+#      path: /equip/**
+#      # management-equip为注册到Eureka上的服务名
+#      service-id: management-equip
